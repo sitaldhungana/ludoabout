@@ -6,7 +6,7 @@
     <title>Ludo Master - The Ultimate Ludo Game Experience</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -14,53 +14,54 @@
             overflow-x: hidden;
         }
         header {
-            background: #333;
+            background: #1e1e1e;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         header h1 {
             margin: 0;
+            font-size: 2.5em;
         }
         .section {
             padding: 60px 20px;
             text-align: center;
+            background: #fff;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .section:nth-child(even) {
-            background: #fff;
+            background: #fafafa;
         }
         .section h2 {
             margin-top: 0;
-            font-size: 2em;
+            font-size: 2.2em;
+            color: #333;
         }
         .section p {
             font-size: 1.2em;
             line-height: 1.6;
+            color: #666;
         }
         .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0;
         }
         .feature {
-            background: #333;
+            background: #1e1e1e;
             color: #fff;
             padding: 20px;
-            margin: 10px;
             border-radius: 8px;
-            flex: 1;
-            max-width: 300px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out, background 0.3s ease, transform 0.3s ease;
-        }
-        .feature.visible {
-            opacity: 1;
-            transform: translateY(0);
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
         }
         .feature:hover {
-            background: #555;
-            transform: translateY(-10px);
+            background: #333;
+            transform: translateY(-5px);
         }
         .cta {
             background: #f39c12;
@@ -68,25 +69,51 @@
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
+            text-align: center;
             transition: background 0.3s ease, transform 0.3s ease;
         }
         .cta a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: #d67e22;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta a:hover {
+            background: #f39c12;
+            transform: scale(1.05);
         }
         .cta:hover {
             background: #e67e22;
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
         footer {
-            background: #333;
+            background: #1e1e1e;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px;
             text-align: center;
+            box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
         }
         footer p {
             margin: 0;
+            font-size: 1em;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .section p {
+                font-size: 1em;
+            }
+            .cta a {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -144,33 +171,13 @@
 
 <section class="section cta">
     <h2>Download Now:</h2>
-    <p>Start your journey to becoming a Ludo champion! Download Ludo Master now and dive into the excitement. Visit our website for more information and updates.</p>
-    <a href="https://example.com">Download Now</a>
+    <p>Start your journey to becoming a Ludo champion! Download Ludo Master now and dive into the excitement.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.sifragames.ludomaster" target="_blank">Download Now</a>
 </section>
 
 <footer>
-    <p>Developed by Sifra Games | Contact: sirfagames@gmail.com</p>
+    <p>&copy; 2024 Ludo Master. All rights reserved.</p>
 </footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const features = document.querySelectorAll('.feature');
-        const section = document.getElementById('features');
-
-        window.addEventListener('scroll', function() {
-            const sectionTop = section.getBoundingClientRect().top;
-            const viewportHeight = window.innerHeight;
-
-            if (sectionTop < viewportHeight - 100) {
-                features.forEach((feature, index) => {
-                    setTimeout(() => {
-                        feature.classList.add('visible');
-                    }, index * 100);
-                });
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
